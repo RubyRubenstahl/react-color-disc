@@ -9,7 +9,7 @@ const styles = {
 
 const App = () => (
   <div style={styles}>
-    <ColorWheel hexColor="#EE6099" />
+    <ColorWheel color={'red'} />
   </div>
 );
 
