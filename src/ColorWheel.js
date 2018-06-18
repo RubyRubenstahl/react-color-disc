@@ -1,7 +1,7 @@
 import React from "react";
 import propTypes from "prop-types";
 import Konva from "konva";
-import { Stage, Image, Layer, Circle } from "react-konva";
+import { Stage, Layer } from "react-konva";
 import Wheel from "./components/Wheel";
 import {hexColorToWheelPosition} from "./helpers/coordinateTransforms";
 import Marker from "./components/Marker";
