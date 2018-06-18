@@ -4,7 +4,8 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 import ColorWheel from "../ColorWheel";
+import chroma from 'chroma-js'
 
-storiesOf("Welcome", module).add("to Storybook", () => (
-  <ColorWheel color={"red"} />
+storiesOf("Colorwheel", module).add("Basic Colorwheel", () => (
+  <ColorWheel color={'lightgreen'} />
 ));
