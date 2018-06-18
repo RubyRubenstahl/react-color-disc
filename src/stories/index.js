@@ -4,8 +4,10 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 import ColorWheel from "../ColorWheel";
-import chroma from 'chroma-js'
+import ControlledColorWheel from "../Examples/ControlledColorWheel";
 
-storiesOf("Colorwheel", module).add("Basic Colorwheel", () => (
-  <ColorWheel color={'lightgreen'} />
-));
+storiesOf("ColorWheel", module)
+  .add("Basic ColorWheel", () => (
+    <ColorWheel color={"red"} onChange={action("Change")} />
+  ))
+  .add("Controlled ColorWheel", () => <ControlledColorWheel />);
