@@ -32,6 +32,7 @@ class ColorWheel extends React.Component {
     const { radius = 150, color = "yellow" } = this.props;
 
     const markerPos = hexColorToWheelPosition(color, radius);
+    const diameter = radius * 2;
     return (
       <Stage width={diameter} height={diameter}>
         <Layer>
