@@ -26,8 +26,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "lib": "babel src/index.js -d lib --copy-files",
-    "build": "babel src --out-file ./lib/index.js",
+    "lib": "npm run clean && babel src -d lib",
+    "clean": "rm -rf lib && mkdir lib",
+    "prepublish": "npm run lib",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
