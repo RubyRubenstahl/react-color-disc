@@ -28,21 +28,28 @@ class ColorWheel extends React.Component {
     }
   };
 
-  render() {
-    const { radius = 150, color ="white"} = this.props;
 
+  shouldComponentUpdate(nextProps, nextState){
+    return this.props.color != nextProps.color ||
+    this.props.radius != nextProps.radius ||
+    this.props.markerRadius != nextProps.markerRadius
+  }
+
+  render() {
+    const { radius = 150, color ="white", markerRadius=15} = this.props;
+    const r = radius;
     const markerPos = hexColorToWheelPosition(color, radius);
     const diameter = radius * 2;
     return (
       <Stage width={diameter} height={diameter}>
         <Layer>
-          <Wheel radius={radius}
-                 onClick={this.handleMouseEvent(radius)}
-                 onMouseMove={this.handleMouseMove(radius)}
+          <Wheel radius={r}
+                 onClick={this.handleMouseEvent(r)}
+                 onMouseMove={this.handleMouseMove(r)}
           />
         </Layer>
         <Layer>
-          <Marker pos={markerPos} />
+          <Marker pos={markerPos} radius={markerRadius}/>
         </Layer>
       </Stage>
     );
@@ -52,7 +59,8 @@ class ColorWheel extends React.Component {
 ColorWheel.propTypes = {
   color: propTypes.string,
   radius: propTypes.number,
-  onChange: propTypes.func
+  onChange: propTypes.func,
+  markerRadius: propTypes.number
 };
 
 export default ColorWheel;
