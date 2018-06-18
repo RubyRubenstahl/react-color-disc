@@ -50,7 +50,8 @@ class ColorWheel extends React.Component {
 
 ColorWheel.propTypes = {
   color: propTypes.string,
-  radius: propTypes.number
+  radius: propTypes.number,
+  onChange: propTypes.func
 };
 
 export default ColorWheel;
