@@ -22,6 +22,7 @@ function Marker({
       stroke={strokeColor}
       shadowOffset={shadowOffset}
       shadowOpacity={shadowOpacity}
+      listening={false}
       {...rest}
     />
   );
