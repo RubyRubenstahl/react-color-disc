@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import { Button, Welcome } from '@storybook/react/demo';
-import ColorWheel from "../src/ColorWheel";
+import ColorWheel from "../src/";
 import ControlledColorWheel from "../src/Examples/ControlledColorWheel";
 
 storiesOf("ColorWheel", module)
