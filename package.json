@@ -2,7 +2,7 @@
   "name": "react-color-disc",
   "version": "0.0.5",
   "description": "A color wheel for react",
-  "keywords": [],
+  "keywords": ["color", "color picker", "color wheel", "rgb"],
   "main": "lib/index.js",
   "dependencies": {
     "chroma-js": "^1.3.7",
