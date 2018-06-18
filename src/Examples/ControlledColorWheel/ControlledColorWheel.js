@@ -2,15 +2,16 @@ import React from "react";
 import ColorWheel from "../../ColorWheel";
 
 class ControlledColorWheel extends React.Component {
-  state = { color: "#5080d2" };
+  state = { color: "#0d5cd2" };
 
   handleColorChange = color => {
     this.setState({ color });
   };
 
+
   render() {
     const bgStyle = {
-      backgroundColor:'#444',
+      backgroundColor: "#444",
       width: "100vw",
       height: "100vh",
       display: "flex",
@@ -21,18 +22,19 @@ class ControlledColorWheel extends React.Component {
     const wheelStyle = {
       ...bgStyle,
       backgroundColor: "#444",
-      width: 400,
-      height: 400,
-      borderRadius: 200,
+      width: '50vmin',
+      height: '50vmin',
+      borderRadius: '25vmin',
       paddingLeft: 4
     };
 
     const outerRingStyle = {
-        ...bgStyle,
+      ...bgStyle,
       backgroundColor: this.state.color,
-      width: 500,
-      height: 500,
-      borderRadius: 250
+      boxShadow: "rgba(14, 14, 14, 0.15) 3px 3px 20px 20px inset",
+      width: '63vmin',
+      height: '63vmin',
+      borderRadius: '34vmin'
     };
 
     return (
@@ -42,6 +44,7 @@ class ControlledColorWheel extends React.Component {
             <ColorWheel
               color={this.state.color}
               onChange={this.handleColorChange}
+              radius={Math.min(window.innerWidth,window.innerHeight)*.18}
             />;
           </div>
         </div>
