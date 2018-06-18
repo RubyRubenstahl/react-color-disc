@@ -3,25 +3,42 @@ import propTypes from "prop-types";
 import Konva from "konva";
 import { Stage, Layer } from "react-konva";
 import Wheel from "./components/Wheel";
-import {hexColorToWheelPosition} from "./helpers/coordinateTransforms";
+import {
+  hexColorToWheelPosition,
+  wheelPositionToHexColor
+} from "./helpers/coordinateTransforms";
 import Marker from "./components/Marker";
 class ColorWheel extends React.Component {
-  state = { color: "white" };
 
-  handleClick = e => {
-    debugger
-    return e;
+  handleMouseEvent = radius => e => {
+    const { layerX, layerY} = e.evt;
+    const hexColor = wheelPositionToHexColor(
+      layerX,
+      layerY,
+      radius,
+      this.props.color
+    );
+    this.props.onChange && this.props.onChange(hexColor)
   };
 
+  handleMouseMove = radius => e => {
+    // debugger
+    if(e.evt.buttons && e.evt.button == 0){
+      this.handleMouseEvent(radius)(e)
+    }
+  };
 
   render() {
     const { radius = 150, color = "yellow" } = this.props;
 
     const markerPos = hexColorToWheelPosition(color, radius);
     return (
-      <Stage width={radius * 2} height={radius * 2}>
+      <Stage width={diameter} height={diameter}>
         <Layer>
-          <Wheel radius={radius} onClick={this.handleClick} />
+          <Wheel radius={radius}
+                 onClick={this.handleMouseEvent(radius)}
+                 onMouseMove={this.handleMouseMove(radius)}
+          />
         </Layer>
         <Layer>
           <Marker pos={markerPos} />
