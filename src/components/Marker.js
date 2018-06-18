@@ -1,7 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
-import Konva from "konva";
-import { Stage, Image, Layer, Circle } from "react-konva";
+import { Circle } from "react-konva";
 
 function Marker({
   pos,
