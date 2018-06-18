@@ -40,7 +40,7 @@ const scale2d = (xScale = 0, yScale = 0) => ([x, y]) => [
   y * yScale
 ];
 
-const coordinateTransforms = (color, radius) => {
+const hexColorToWheelPosition = (color, radius) => {
   const toCartesian = pipe(
     colorToHsl,
     rotateHue(90),
@@ -57,4 +57,4 @@ const coordinateTransforms = (color, radius) => {
   return point;
 };
 
-export default coordinateTransforms;
+export {hexColorToWheelPosition};

@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 import Konva from "konva";
 import { Stage, Image, Layer, Circle } from "react-konva";
 import Wheel from "./components/Wheel";
-import colorToCartesian from "./helpers/colorToCartesian";
+import {hexColorToWheelPosition} from "./helpers/coordinateTransforms";
 import Marker from "./components/Marker";
 class ColorWheel extends React.Component {
   state = { color: "white" };
@@ -17,7 +17,7 @@ class ColorWheel extends React.Component {
   render() {
     const { radius = 150, color = "yellow" } = this.props;
 
-    const markerPos = colorToCartesian(color, radius);
+    const markerPos = hexColorToWheelPosition(color, radius);
     return (
       <Stage width={radius * 2} height={radius * 2}>
         <Layer>
