@@ -27,9 +27,9 @@ const cartesianToPolar = ([x, y]) => [Math.atan2(y, x), pythag(x, y)];
 const nanToZero = vals => vals.map(val => (isNaN(val) ? 0 : val));
 
 // Convert the hue dgrees to radians and drop the value and we have polar coordinates
-const hslToPolar = ([h, s, l]) => [deg2Rad(h), s];
+const hsvToPolar = ([h, s, l]) => [deg2Rad(h), s];
 
-const polarToHsl = (maxRadius, value) => ([angle, radius]) => [
+const polarToHsv = (maxRadius, value) => ([angle, radius]) => [
   rad2Deg(angle),
   radius / maxRadius,
   value
@@ -37,12 +37,12 @@ const polarToHsl = (maxRadius, value) => ([angle, radius]) => [
 
 export {
   nanToZero,
-  hslToPolar,
+  hsvToPolar,
   polarToCartesian,
   scale2d,
   transform2d,
   cartesianToPolar,
-  polarToHsl,
+  polarToHsv,
   rad2Deg,
   deg2Rad,
   pythag

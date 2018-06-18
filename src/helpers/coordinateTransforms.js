@@ -2,37 +2,37 @@ import chroma from "chroma-js";
 import pipe from "lodash/fp/pipe";
 import {
   nanToZero,
-  hslToPolar,
+  hsvToPolar,
   polarToCartesian,
   scale2d,
   transform2d,
   cartesianToPolar,
-  polarToHsl
+  polarToHsv
 } from "./math";
 
 // Take a hex color and convert it to HSV arrary
-const colorToHsl = color => chroma(color).hsv();
+const colorToHsv = color => chroma(color).hsv();
 
 // Take a hex color and convert it to HSV arrary
 const hsvToHex = ([h, s, v]) => chroma.hsv(h, s, v).hex();
 
-// Scale the saturation value in an HSL array
-const scaleSat = scale => ([h, s, l]) => [h, s * scale, l];
+// Scale the saturation value in an HSV array
+const scaleSat = scale => ([h, s, v]) => [h, s * scale, v];
 
 const wrapAngle = angle => angle % 360;
 
 // Add to the hue angle
-const rotateHue = angle => ([h, s, l]) => [wrapAngle(h + angle), s, l];
+const rotateHue = angle => ([h, s, v]) => [wrapAngle(h + angle), s, v];
 
 // convert from [x,y] to {x,y}
 const toPointObject = ([x, y]) => ({ x, y });
 
 const hexColorToWheelPosition = (color, radius) =>
   pipe(
-    colorToHsl,
+    colorToHsv,
     rotateHue(90),
     nanToZero,
-    hslToPolar,
+    hsvToPolar,
     polarToCartesian,
     scale2d(radius, radius),
     transform2d(radius, radius),
@@ -47,7 +47,7 @@ const wheelPositionToHexColor = (x, y, radius, originalColor) => {
     transform2d(-radius, -radius),
     scale2d(1 / radius, -1 / radius),
     cartesianToPolar,
-    polarToHsl(radius, getHsvValue(originalColor)),
+    polarToHsv(radius, getHsvValue(originalColor)),
     scaleSat(radius / 1),
     rotateHue(0),
     hsvToHex
