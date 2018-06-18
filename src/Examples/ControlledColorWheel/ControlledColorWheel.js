@@ -8,6 +8,18 @@ class ControlledColorWheel extends React.Component {
     this.setState({ color });
   };
 
+  componentDidMount() {
+    this.setRadius();
+    window.addEventListener("resize", () => {
+      this.setRadius();
+    });
+  }
+
+  setRadius() {
+    const radius = Math.min(window.innerWidth, window.innerHeight) * 0.18;
+    console.log("Radius: " + radius);
+    this.setState({ radius });
+  }
 
   render() {
     const bgStyle = {
