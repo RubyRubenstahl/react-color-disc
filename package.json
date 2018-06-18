@@ -1,7 +1,7 @@
 {
-  "name": "colorwheel",
-  "version": "1.0.0",
-  "description": "",
+  "name": "react-color-disc",
+  "version": "0.0.1",
+  "description": "A color wheel for react",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
@@ -28,5 +28,15 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RubyRubenstahl/react-color-disc.git"
+  },
+  "author": "Ruby Rubenstahl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RubyRubenstahl/react-color-disc/issues"
+  },
+  "homepage": "https://github.com/RubyRubenstahl/react-color-disc#readme"
 }
