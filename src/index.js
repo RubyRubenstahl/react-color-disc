@@ -9,7 +9,7 @@ const styles = {
 
 const App = () => (
   <div style={styles}>
-    <ColorWheel color={'red'} />
+    <ColorWheel color={'white'} />
   </div>
 );
 
