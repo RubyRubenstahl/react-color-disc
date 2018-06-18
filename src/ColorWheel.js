@@ -8,48 +8,49 @@ import {
   wheelPositionToHexColor
 } from "./helpers/coordinateTransforms";
 import Marker from "./components/Marker";
-class ColorWheel extends React.Component {
 
+class ColorWheel extends React.Component {
   handleMouseEvent = radius => e => {
-    const { layerX, layerY} = e.evt;
+    const { layerX, layerY } = e.evt;
     const hexColor = wheelPositionToHexColor(
       layerX,
       layerY,
       radius,
       this.props.color
     );
-    this.props.onChange && this.props.onChange(hexColor)
+    this.props.onChange && this.props.onChange(hexColor);
   };
 
   handleMouseMove = radius => e => {
     // debugger
-    if(e.evt.buttons && e.evt.button == 0){
-      this.handleMouseEvent(radius)(e)
+    if (e.evt.buttons && e.evt.button == 0) {
+      this.handleMouseEvent(radius)(e);
     }
   };
 
-
-  shouldComponentUpdate(nextProps, nextState){
-    return this.props.color != nextProps.color ||
-    this.props.radius != nextProps.radius ||
-    this.props.markerRadius != nextProps.markerRadius
+  shouldComponentUpdate(nextProps, nextState) {
+    return (
+      this.props.radius !== nextProps.radius ||
+      this.props.color !== nextProps.color
+    );
   }
 
   render() {
-    const { radius = 150, color ="white", markerRadius=15} = this.props;
+    const { radius = 150, color = "white", markerRadius = 15 } = this.props;
     const r = radius;
     const markerPos = hexColorToWheelPosition(color, radius);
     const diameter = radius * 2;
     return (
       <Stage width={diameter} height={diameter}>
         <Layer>
-          <Wheel radius={r}
-                 onClick={this.handleMouseEvent(r)}
-                 onMouseMove={this.handleMouseMove(r)}
+          <Wheel
+            radius={r}
+            onClick={this.handleMouseEvent(r)}
+            onMouseMove={this.handleMouseMove(r)}
           />
         </Layer>
         <Layer>
-          <Marker pos={markerPos} radius={markerRadius}/>
+          <Marker pos={markerPos} radius={markerRadius} />
         </Layer>
       </Stage>
     );
