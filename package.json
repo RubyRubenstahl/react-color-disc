@@ -41,7 +41,7 @@
     "publish-patch": "npm version patch && npm publish"
   },
   "files": [
-    "lib"
+    "lib/*"
   ],
   "repository": {
     "type": "git",
