@@ -44,8 +44,8 @@ class ControlledColorWheel extends React.Component {
             <ColorWheel
               color={this.state.color}
               onChange={this.handleColorChange}
-              radius={Math.min(window.innerWidth,window.innerHeight)*.18}
-            />;
+              radius={this.state.radius}
+            />
           </div>
         </div>
       </div>
