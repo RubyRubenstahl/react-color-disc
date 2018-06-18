@@ -29,7 +29,7 @@ function Marker({
 }
 
 Marker.propTypes={
-  pos: propTypes.number,
+  pos: propTypes.object,
   radius: propTypes.number,
   strokeWidth: propTypes.number,
   strokeColor: propTypes.string,
