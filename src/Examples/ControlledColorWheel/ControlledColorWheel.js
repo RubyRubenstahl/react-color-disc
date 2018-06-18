@@ -22,9 +22,9 @@ class ControlledColorWheel extends React.Component {
     const wheelStyle = {
       ...bgStyle,
       backgroundColor: "#444",
-      width: '50vmin',
-      height: '50vmin',
-      borderRadius: '25vmin',
+      width: "50vmin",
+      height: "50vmin",
+      borderRadius: "50vmin",
       paddingLeft: 4
     };
 
@@ -32,9 +32,9 @@ class ControlledColorWheel extends React.Component {
       ...bgStyle,
       backgroundColor: this.state.color,
       boxShadow: "rgba(14, 14, 14, 0.15) 3px 3px 20px 20px inset",
-      width: '63vmin',
-      height: '63vmin',
-      borderRadius: '34vmin'
+      width: "63vmin",
+      height: "63vmin",
+      borderRadius: "34vmin"
     };
 
     return (
