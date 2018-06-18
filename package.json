@@ -38,7 +38,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "publish-patch": "npm version patch && npm publish"
+    "patch": "npm version patch && npm publish"
   },
   "files": [
     "lib/*"
